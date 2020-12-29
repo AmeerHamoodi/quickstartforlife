@@ -4,6 +4,8 @@ const electronContent = fs.readFileSync("./files/electron.js");
 const gulpContent = fs.readFileSync("./files/gulp.js");
 const htmlContent = fs.readFileSync("./files/index.html");
 const webpackContent = fs.readFileSync("./files/webpack.js");
+const mainJsx = fs.readFileSync("./files/main.jsx");
+const appJsx = fs.readFileSync("./files/App.jsx");
 
 /*
 -src
@@ -36,13 +38,13 @@ const createFolders = () => {
 const createFiles = () => {
     const { writeFileSync } = fs;
 
-    writeFileSync("./src/js/main.jsx", "", (err) => {
+    writeFileSync("./src/js/main.jsx", mainJsx, (err) => {
         if (err) throw err;
     });
-    writeFileSync("./src/js/App.jsx", "", (err) => {
+    writeFileSync("./src/js/App.jsx", appJsx, (err) => {
         if (err) throw err;
     });
-    writeFileSync("./src/css/master.css", "", (err) => {
+    writeFileSync("./src/css/master.scss", "", (err) => {
         if (err) throw err;
     });
     writeFileSync("./src/index.html", htmlContent, (err) => {
